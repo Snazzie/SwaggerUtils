@@ -4,7 +4,11 @@ using System.Reflection;
 
 namespace Snazzie.SwaggerUtils
 {
-    public class RequiredSchemaFilter : ISchemaFilter
+    /// <summary>
+    /// Makes all non nullable properties required by default
+    /// Usage: `options.SchemaFilter<SwaggerRequiredSchemaFilter>();`
+    /// </summary>
+    public class RequiredIfNotNullableSchemaFilter : ISchemaFilter
     {
         public void Apply(OpenApiSchema schema, SchemaFilterContext context)
         {
